@@ -12,6 +12,8 @@
  */
 package org.openhab.binding.nzwateralerts.internal.api;
 
+import static org.openhab.binding.nzwateralerts.internal.NZWaterAlertsBindingConstants.ERROR_PARSE;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -86,6 +88,6 @@ public class TaupoDistrictCouncil implements WaterWebService {
             }
 
         }
-        return -1;
+        return ERROR_PARSE;
     }
 }

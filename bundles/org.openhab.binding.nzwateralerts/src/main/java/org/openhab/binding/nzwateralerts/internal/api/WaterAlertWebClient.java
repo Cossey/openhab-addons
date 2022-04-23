@@ -82,9 +82,12 @@ public class WaterAlertWebClient {
                 logger.debug("Service, region is null");
                 return null;
             }
-        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+        } catch (InterruptedException | ExecutionException e) {
             logger.debug("Error when attempting to get Water Level {}", e.getMessage());
             return null;
+        } catch (TimeoutException e) {
+            logger.debug("Timeout when attempting to get Water Level {}", e.getMessage());
+            return ERROR_TIMEOUT;
         }
     }
 }

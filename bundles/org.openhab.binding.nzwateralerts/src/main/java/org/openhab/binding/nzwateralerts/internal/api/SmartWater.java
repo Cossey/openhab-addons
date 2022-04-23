@@ -12,6 +12,8 @@
  */
 package org.openhab.binding.nzwateralerts.internal.api;
 
+import static org.openhab.binding.nzwateralerts.internal.NZWaterAlertsBindingConstants.ERROR_PARSE;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -75,6 +77,6 @@ public class SmartWater implements WaterWebService {
             }
             return Integer.valueOf(level);
         }
-        return -1;
+        return ERROR_PARSE;
     }
 }

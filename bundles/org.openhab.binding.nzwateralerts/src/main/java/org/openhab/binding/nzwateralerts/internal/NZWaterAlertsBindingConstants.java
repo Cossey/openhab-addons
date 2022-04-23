@@ -33,6 +33,9 @@ public class NZWaterAlertsBindingConstants {
 
     private static final String BINDING_ID = "nzwateralerts";
 
+    public static final int ERROR_PARSE = -1;
+    public static final int ERROR_TIMEOUT = -2;
+
     // List of all Thing Type UIDs
     public static final ThingTypeUID THING_TYPE_WATERALERT = new ThingTypeUID(BINDING_ID, "wateralert");
 
