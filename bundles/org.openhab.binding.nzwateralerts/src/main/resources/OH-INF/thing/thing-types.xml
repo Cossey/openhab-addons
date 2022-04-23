@@ -27,6 +27,7 @@
 					<option value="bewaterwise:farnorth:kerikeriwaipapa">Kerikeri / Waipapa</option>
 					<option value="bewaterwise:whangarei:mangapai">Mangapai</option>
 					<option value="bewaterwise:kaipara:mangawhai">Mangawhai</option>
+					<option value="matamatapiakodistrictcouncil:district:district">Matamata-Piako District</option>
 					<option value="bewaterwise:whangarei:maungakaramea">Maungakaramea</option>
 					<option value="bewaterwise:kaipara:maungaturoto">Maungaturoto</option>
 					<option value="bewaterwise:farnorth:moerewakawakawa">Moerewa / Kawakawa</option>
@@ -36,6 +37,7 @@
 					<option value="bewaterwise:farnorth:rawene">Rawene</option>
 					<option value="bewaterwise:kaipara:ruawai">Ruawai</option>
 					<option value="bewaterwise:farnorth:russell">Russell</option>
+					<option value="taupodistrictcouncil:district:district">Taupō</option>
 					<option value="smartwater:waipa:waipa">Waipa District</option>
 					<option value="smartwater:waikato:waikato">Waikato District</option>
 					<option value="bewaterwise:farnorth:waitangipaihiaopua">Waitangi / Paihia / Opua</option>

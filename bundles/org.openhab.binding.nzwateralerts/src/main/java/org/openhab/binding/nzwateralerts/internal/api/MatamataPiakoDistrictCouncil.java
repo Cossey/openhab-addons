@@ -22,37 +22,34 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The {@link TaupoDistrictCouncil} class contains the logic to get data the
- * www.taupodc.govt.nz website.
+ * The {@link NapierCityCouncil} class contains the logic to get data the
+ * www.mpdc.govt.nz website.
  * 
- * Taupo District Council
- * 
- * NOTE: This is currently a placeholder. This region needs to go into restrictions
- * first so I can parse the correct output. -Stewart Cossey
+ * Matamata-Piako District Council
  *
  * @author Stewart Cossey - Initial contribution
  */
 @NonNullByDefault
-public class TaupoDistrictCouncil implements WaterWebService {
-    private final Logger logger = LoggerFactory.getLogger(TaupoDistrictCouncil.class);
+public class MatamataPiakoDistrictCouncil implements WaterWebService {
+    private final Logger logger = LoggerFactory.getLogger(MatamataPiakoDistrictCouncil.class);
 
-    private static final String HOSTNAME = "https://www.taupodc.govt.nz";
-    private static final String REGION_TAUPO = "/transport-and-water/water-conservation";
+    private static final String HOSTNAME = "https://www.mpdc.govt.nz";
+    private static final String REGION_DISTRICT = "/water/current-water-situation";
 
-    private static final String PATTERN = "div class=\"rc\".*?<tbody>.*?<strong>.*?<strong>(.*?) restrictions</strong>";
+    private static final String PATTERN = "<h5>.*?Level (.*?) water restrictions.*?</h5>";
     private static final Pattern REGEX = Pattern.compile(PATTERN,
             Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL);
 
     @Override
     public String service() {
-        return "taupodistrictcouncil";
+        return "matamatapiakodistrictcouncil";
     }
 
     @Override
     public String endpoint(final String region) {
         switch (region.toLowerCase()) {
             case "district":
-                return HOSTNAME + REGION_TAUPO;
+                return HOSTNAME + REGION_DISTRICT;
 
         }
         return "";
@@ -71,19 +68,15 @@ public class TaupoDistrictCouncil implements WaterWebService {
                     return 0;
 
                 case "level one":
-                case "level 1":
                     return 1;
 
                 case "level two":
-                case "level 2":
                     return 2;
 
                 case "level three":
-                case "level 3":
                     return 3;
 
                 case "level four":
-                case "level 4":
                     return 4;
             }
 
