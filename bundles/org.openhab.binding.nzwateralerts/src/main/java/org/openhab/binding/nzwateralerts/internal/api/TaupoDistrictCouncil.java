@@ -18,6 +18,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
+import org.openhab.binding.nzwateralerts.internal.Common;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,11 +38,10 @@ public class TaupoDistrictCouncil implements WaterWebService {
     private final Logger logger = LoggerFactory.getLogger(TaupoDistrictCouncil.class);
 
     private static final String HOSTNAME = "https://www.taupodc.govt.nz";
-    private static final String REGION_TAUPO = "/transport-and-water/water-conservation";
+    private static final String REGION_DISTRICT = "/transport-and-water/water-conservation";
 
-    private static final String PATTERN = "div class=\"rc\".*?<tbody>.*?<strong>.*?<strong>(.*?) restrictions</strong>";
-    private static final Pattern REGEX = Pattern.compile(PATTERN,
-            Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL);
+    private static final String PATTERN = "<strong>(\\w+ )*restrictions</strong>";
+    private static final Pattern REGEX = Pattern.compile(PATTERN, Pattern.CASE_INSENSITIVE);
 
     @Override
     public String service() {
@@ -50,12 +50,7 @@ public class TaupoDistrictCouncil implements WaterWebService {
 
     @Override
     public String endpoint(final String region) {
-        switch (region.toLowerCase()) {
-            case "district":
-                return HOSTNAME + REGION_TAUPO;
-
-        }
-        return "";
+        return HOSTNAME + REGION_DISTRICT;
     }
 
     @Override
@@ -66,25 +61,10 @@ public class TaupoDistrictCouncil implements WaterWebService {
             final String level = matches.group(1);
             logger.debug("Data Level {}", level);
 
-            switch (level.toLowerCase()) {
-                case "no":
-                    return 0;
+            int result = Common.processResponse(level);
 
-                case "level one":
-                case "level 1":
-                    return 1;
-
-                case "level two":
-                case "level 2":
-                    return 2;
-
-                case "level three":
-                case "level 3":
-                    return 3;
-
-                case "level four":
-                case "level 4":
-                    return 4;
+            if (result != ERROR_PARSE) {
+                return result;
             }
 
         }
