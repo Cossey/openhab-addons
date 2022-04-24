@@ -1,15 +1,18 @@
 # NZ Water Alerts Binding
 
-Get Water Alert Levels for cities in New Zealand.
-Getting this alert level can help you script and automate smarter tasks for water and avoid getting penalized from your distract or local council. 
+Get Water Alert Levels for cities and regions in New Zealand.
+Getting this alert level can help you script and automate smarter tasks for water and avoid getting penalized from your district or local council.
 
-> Example: Disable automated spinklers based on a level 3 or 4 water alert level
+> Example: Disable automated sprinklers based on a level 3 or 4 water alert level
 
 This Binding scrapes multiple websites for Water Levels:
 
+* Auckland's [Watercare Website](https://www.watercare.co.nz)
 * Northland's [BeWaterWise Website](https://bewaterwise.org.nz/)
 * Waikato's [Smart Water Website](https://www.smartwater.org.nz/)
 * Napier's [Council Website](https://www.napier.govt.nz)
+* Taupō's [District Council Website](https://www.taupodc.govt.nz)
+* Matamata-Piako's [District Council Website](https://www.mpdc.govt.nz)
 
 ## Thing Configuration
 
@@ -24,30 +27,33 @@ The binding and thing ID is `nzwateralerts:wateralert`.
 
 ### Supported city/area list
 
-| City                     | Config Value                               |
-| ------------------------ | ------------------------------------------ |
-| Bream Bay                | bewaterwise:whangarei:breambay             |
-| Dargaville & Baylys      | bewaterwise:kaipara:dargavilleampbaylys    |
-| Glinks Gully             | bewaterwise:kaipara:glinksgully            |
-| Hamilton City            | smartwater:hamilton:hamilton               |
-| Kaikohe / Ngawha         | bewaterwise:farnorth:kaikohengawha         |
-| Kaitaia                  | bewaterwise:farnorth:kaitaia               |
-| Kerikeri / Waipapa       | bewaterwise:farnorth:kerikeriwaipapa       |
-| Mangapai                 | bewaterwise:whangarei:mangapai             |
-| Mangawhai                | bewaterwise:kaipara:mangawhai              |
-| Maungakaramea            | bewaterwise:whangarei:maungakaramea        |
-| Maungaturoto             | bewaterwise:kaipara:maungaturoto           |
-| Moerewa / Kawakawa       | bewaterwise:farnorth:moerewakawakawa       |
-| Napier                   | napiercitycouncil:napier:napier            |
-| Okaihau                  | bewaterwise:farnorth:okaihau               |
-| Opononi / Omapere        | bewaterwise:farnorth:opononiomapere        |
-| Rawene                   | bewaterwise:farnorth:rawene                |
-| Ruawai                   | bewaterwise:kaipara:ruawai                 |
-| Russell                  | bewaterwise:farnorth:russell               |
-| Waipa District           | smartwater:waipa:waipa                     |
-| Waikato District         | smartwater:waikato:waikato                 |
-| Waitangi / Paihia / Opua | bewaterwise:farnorth:waitangipaihiaopua    |
-| Whangarei                | bewaterwise:whangarei:whangarei            |
+| City                     | Config Value                                   |
+| ------------------------ | ---------------------------------------------- |
+| Auckland City            | watercare:city:city                            |
+| Bream Bay                | bewaterwise:whangarei:breambay                 |
+| Dargaville & Baylys      | bewaterwise:kaipara:dargavilleampbaylys        |
+| Glinks Gully             | bewaterwise:kaipara:glinksgully                |
+| Hamilton City            | smartwater:hamilton:hamilton                   |
+| Kaikohe / Ngāwhā         | bewaterwise:farnorth:kaikohengawha             |
+| Kaitāia                  | bewaterwise:farnorth:kaitaia                   |
+| Kerikeri / Waipapa       | bewaterwise:farnorth:kerikeriwaipapa           |
+| Mangapai                 | bewaterwise:whangarei:mangapai                 |
+| Mangawhai                | bewaterwise:kaipara:mangawhai                  |
+| Matamata-Piako District  | matamatapiakodistrictcouncil:district:district |
+| Maungakaramea            | bewaterwise:whangarei:maungakaramea            |
+| Maungaturoto             | bewaterwise:kaipara:maungaturoto               |
+| Moerewa / Kawakawa       | bewaterwise:farnorth:moerewakawakawa           |
+| Napier                   | napiercitycouncil:city:city                    |
+| Ōkaihau                  | bewaterwise:farnorth:okaihau                   |
+| Opononi / Ōmāpere        | bewaterwise:farnorth:opononiomapere            |
+| Rawene                   | bewaterwise:farnorth:rawene                    |
+| Ruawai                   | bewaterwise:kaipara:ruawai                     |
+| Russell                  | bewaterwise:farnorth:russell                   |
+| Taupō District           | taupodistrictcouncil:district:district         |
+| Waipa District           | smartwater:waipa:waipa                         |
+| Waikato District         | smartwater:waikato:waikato                     |
+| Waitangi / Paihia / Opua | bewaterwise:farnorth:waitangipaihiaopua        |
+| Whangārei                | bewaterwise:whangarei:whangarei                |
 
 ### Example
 
@@ -66,7 +72,7 @@ Check with your regional council for further details.
 
 ## Other Cities
 
-At present the supported cities were implemented by scraping the web page on the respective website which contains the restriction information. 
+At present the supported cities were implemented by scraping the web page on the respective website which contains the restriction information.
 
 **No councils have this data in a programmatic format easily accessible to software.**
 Most won't have pages which contain the current alert level and only offer alerts via twitter or text.
