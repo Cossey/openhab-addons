@@ -13,7 +13,6 @@
 package org.openhab.binding.nzwateralerts.internal.handler;
 
 import static org.openhab.binding.nzwateralerts.internal.NZWaterAlertsBindingConstants.*;
-import static org.openhab.binding.nzwateralerts.internal.NZWaterAlertsBindingConstants.CHANNEL_ALERTLEVEL;
 
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
@@ -85,7 +84,8 @@ public class NZWaterAlertsHandler extends BaseThingHandler {
             startPolling(timeoutRetry);
         } else {
             updateStatus(ThingStatus.ONLINE);
-            updateState(new ChannelUID(getThing().getUID(), CHANNEL_ALERTLEVEL), new DecimalType(waterLevel));
+            updateState(new ChannelUID(getThing().getUID(), CHANNEL_ALERTLEVEL),
+                    new DecimalType(waterLevel.longValue()));
         }
     }
 
