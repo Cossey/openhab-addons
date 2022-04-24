@@ -22,6 +22,7 @@ import org.openhab.binding.nzwateralerts.internal.api.NapierCityCouncil;
 import org.openhab.binding.nzwateralerts.internal.api.SmartWater;
 import org.openhab.binding.nzwateralerts.internal.api.TaupoDistrictCouncil;
 import org.openhab.binding.nzwateralerts.internal.api.WaterWebService;
+import org.openhab.binding.nzwateralerts.internal.api.Watercare;
 import org.openhab.core.thing.ThingTypeUID;
 
 /**
@@ -47,5 +48,5 @@ public class NZWaterAlertsBindingConstants {
     // List of all supported services
     public static final List<WaterWebService> WATER_WEB_SERVICES = Arrays
             .asList(new WaterWebService[] { new SmartWater(), new BeWaterWise(), new NapierCityCouncil(),
-                    new TaupoDistrictCouncil(), new MatamataPiakoDistrictCouncil() });
+                    new TaupoDistrictCouncil(), new MatamataPiakoDistrictCouncil(), new Watercare() });
 }

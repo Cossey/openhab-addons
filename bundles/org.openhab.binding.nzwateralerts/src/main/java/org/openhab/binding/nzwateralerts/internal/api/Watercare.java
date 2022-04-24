@@ -24,31 +24,30 @@ import org.slf4j.LoggerFactory;
 
 /**
  * The {@link NapierCityCouncil} class contains the logic to get data the
- * www.mpdc.govt.nz website.
+ * www.watercare.co.nz website.
  * 
- * Matamata-Piako District Council
+ * Auckland City
  *
  * @author Stewart Cossey - Initial contribution
  */
 @NonNullByDefault
-public class MatamataPiakoDistrictCouncil implements WaterWebService {
-    private final Logger logger = LoggerFactory.getLogger(MatamataPiakoDistrictCouncil.class);
+public class Watercare implements WaterWebService {
+    private final Logger logger = LoggerFactory.getLogger(Watercare.class);
 
-    private static final String HOSTNAME = "https://www.mpdc.govt.nz";
-    private static final String REGION_DISTRICT = "/water/current-water-situation";
+    private static final String HOSTNAME = "https://www.watercare.co.nz";
+    private static final String REGION_CITY = "/Water-and-wastewater/Water-supply-situation/Water-restrictions";
 
-    private static final String PATTERN = "<h5>.*?Level (.*?) water restrictions.*?</h5>";
-    private static final Pattern REGEX = Pattern.compile(PATTERN,
-            Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL);
+    private static final String PATTERN = "<strong>.*?([A-Za-z1234]+) restrictions.*?</strong>";
+    private static final Pattern REGEX = Pattern.compile(PATTERN, Pattern.CASE_INSENSITIVE);
 
     @Override
     public String service() {
-        return "matamatapiakodistrictcouncil";
+        return "watercare";
     }
 
     @Override
     public String endpoint(final String region) {
-        return HOSTNAME + REGION_DISTRICT;
+        return HOSTNAME + REGION_CITY;
     }
 
     @Override
@@ -64,7 +63,6 @@ public class MatamataPiakoDistrictCouncil implements WaterWebService {
             if (result != ERROR_PARSE) {
                 return result;
             }
-
         }
         return ERROR_PARSE;
     }

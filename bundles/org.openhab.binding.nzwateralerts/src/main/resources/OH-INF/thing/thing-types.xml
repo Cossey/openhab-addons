@@ -18,6 +18,7 @@
 				<description>The location to get the Water Alert level for.</description>
 				<limitToOptions>true</limitToOptions>
 				<options>
+					<option value="watercare:city:city">Auckland City</option>
 					<option value="bewaterwise:whangarei:breambay">Bream Bay</option>
 					<option value="bewaterwise:kaipara:dargavilleampbaylys">Dargaville &amp; Baylys</option>
 					<option value="bewaterwise:kaipara:glinksgully">Glinks Gully</option>
@@ -31,7 +32,7 @@
 					<option value="bewaterwise:whangarei:maungakaramea">Maungakaramea</option>
 					<option value="bewaterwise:kaipara:maungaturoto">Maungaturoto</option>
 					<option value="bewaterwise:farnorth:moerewakawakawa">Moerewa / Kawakawa</option>
-					<option value="napiercitycouncil:napier:napier">Napier</option>
+					<option value="napiercitycouncil:city:city">Napier</option>
 					<option value="bewaterwise:farnorth:okaihau">Ōkaihau</option>
 					<option value="bewaterwise:farnorth:opononiomapere">Opononi / Ōmāpere</option>
 					<option value="bewaterwise:farnorth:rawene">Rawene</option>
