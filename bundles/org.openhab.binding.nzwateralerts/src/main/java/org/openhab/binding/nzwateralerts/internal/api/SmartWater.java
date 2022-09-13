@@ -35,10 +35,10 @@ public class SmartWater implements WaterWebService {
 
     private static final String HOSTNAME = "http://www.smartwater.org.nz";
     private static final String REGION_HAMILTON = "/alert-levels/hamilton-city";
-    private static final String REGION_WAIKATO = "/alert-levels/waikato-district-council";
-    private static final String REGION_WAIPA = "/alert-levels/waipa-district-council";
+    private static final String REGION_WAITOMO = "/alert-levels/waitomo";
+    private static final String REGION_WAIPA = "/alert-levels/waipa";
 
-    private static final String PATTERN = "/assets/Alert-Level-Images/(?:water-alert-([1-4]|no)-large|(save)-wai-logo).svg.*?";
+    private static final String PATTERN = "/assets/(?:.*?/)(?:water-alert-([0-4]).*?\\.svg.*?";
     private static final Pattern REGEX = Pattern.compile(PATTERN,
             Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL);
 
@@ -53,8 +53,8 @@ public class SmartWater implements WaterWebService {
             case "hamilton":
                 return HOSTNAME + REGION_HAMILTON;
 
-            case "waikato":
-                return HOSTNAME + REGION_WAIKATO;
+            case "waitomo":
+                return HOSTNAME + REGION_WAITOMO;
 
             case "waipa":
                 return HOSTNAME + REGION_WAIPA;
