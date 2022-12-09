@@ -38,7 +38,7 @@ public class SmartWater implements WaterWebService {
     private static final String REGION_WAITOMO = "/alert-levels/waitomo";
     private static final String REGION_WAIPA = "/alert-levels/waipa";
 
-    private static final String PATTERN = "/assets/(?:.*?/)(?:water-alert-([0-4]).*?\\.svg.*?";
+    private static final String PATTERN = "/assets/(?:.*?/)(?:water-alert-([0-4]).*?\\.svg).*?";
     private static final Pattern REGEX = Pattern.compile(PATTERN,
             Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL);
 
@@ -68,13 +68,13 @@ public class SmartWater implements WaterWebService {
 
         while (matches.find()) {
             String level = matches.group(1);
-            final String altMsgs = matches.group(2);
 
-            logger.debug("Data Level {}", level);
-            if ("no".equalsIgnoreCase(level) || "save".equalsIgnoreCase(altMsgs)) {
+            if ("no".equalsIgnoreCase(level) || "save".equalsIgnoreCase(level)) {
                 logger.debug("Convert Data Level to 0");
                 level = "0";
             }
+            logger.trace("Data {}", level);
+
             return Integer.valueOf(level);
         }
         return ERROR_PARSE;
